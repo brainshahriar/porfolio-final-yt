@@ -11,10 +11,17 @@ const AboutBox = () => {
                 </div>
             </div>
             <div className="about__box">
-                <i className="about__icon icon-fire">37</i>
+                <i className="about__icon icon-fire"></i>
                 <div>
-                    <h3 className="about__title">Project Completed</h3>
-                    <span className="about__subtitle"></span>
+                    <h3 className="about__title">37</h3>
+                    <span className="about__subtitle">Project Completed</span>
+                </div>
+            </div>
+            <div className="about__box">
+                <i className="about__icon icon-cup"></i>
+                <div>
+                    <h3 className="about__title">5670</h3>
+                    <span className="about__subtitle">Cup of Coffee</span>
                 </div>
             </div>
             <div className="about__box">
