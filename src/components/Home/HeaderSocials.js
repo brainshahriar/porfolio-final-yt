@@ -4,16 +4,16 @@ import {AiFillLinkedin,AiFillFacebook,AiFillInstagram,AiFillGithub,AiOutlineWhat
 const HeaderSocials = () => {
     return (
         <div className="home__socials">
-            <a href="#home" className='home__social-link' target='_blank'>
+            <a href="https://www.linkedin.com/in/al-shahriar-mehedi-4094341bb/" className='home__social-link' target='_blank' rel="noreferrer">
                 <AiFillLinkedin/>
             </a>
-            <a href="#home" className='home__social-link' target='_blank'>
+            <a href="https://www.facebook.com/al.shahariar" className='home__social-link' target='_blank' rel="noreferrer">
                 <AiFillFacebook/>
             </a>
-            <a href="#home" className='home__social-link' target='_blank'>
+            <a href="https://www.instagram.com/al.shahriar.mehedi/" className='home__social-link' target='_blank' rel="noreferrer">
                 <AiFillInstagram/>
             </a>
-            <a href="#home" className='home__social-link' target='_blank'>
+            <a href="https://github.com/brainshahriar" className='home__social-link' target='_blank' rel="noreferrer">
                 <AiFillGithub/>
             </a>
             <a href="#home" className='home__social-link' target='_blank'>

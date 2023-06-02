@@ -51,8 +51,8 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <AboutBox/>
             </div>
+            <AboutBox/>
         </section>
     );
 };
