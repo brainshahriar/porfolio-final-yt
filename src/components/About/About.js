@@ -13,7 +13,7 @@ const About = () => {
         <div className="about__data grid">
           <div className="about__info">
             <p className="about__description">
-              Hello ! I am Full Stack Software engineer who is passionate about
+              Hello! I am Full Stack Software engineer who is passionate about
               making error-free Applications with 100% satisfaction.I love to
               solve real world problem.
             </p>
