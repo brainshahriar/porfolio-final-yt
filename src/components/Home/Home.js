@@ -4,6 +4,7 @@ import './home.scss'
 import HeaderSocials from './HeaderSocials';
 import ScrollDown from './ScrollDown';
 import Shapes from './Shapes';
+import ReactWhatsapp from 'react-whatsapp';
 
 const Home = () => {
     return (
@@ -13,7 +14,7 @@ const Home = () => {
                 <h1 className="home__name">Al Shahriar Mehedi</h1>
                 <span className="home__education">I'm a Full-Stack Developer</span>
                 <HeaderSocials/>
-                <a href="#contact" className="btn">Hire Me</a>
+                <ReactWhatsapp className="btn" number="+8801317752207" message="Hi!">Hire Me</ReactWhatsapp>
                 <ScrollDown/>
             </div>
             <Shapes/>

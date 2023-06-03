@@ -1,5 +1,6 @@
 import React from 'react';
 import {AiFillLinkedin,AiFillFacebook,AiFillInstagram,AiFillGithub,AiOutlineWhatsApp} from 'react-icons/ai'
+import ReactWhatsapp from 'react-whatsapp';
 
 const HeaderSocials = () => {
     return (
@@ -16,9 +17,7 @@ const HeaderSocials = () => {
             <a href="https://github.com/brainshahriar" className='home__social-link' target='_blank' rel="noreferrer">
                 <AiFillGithub/>
             </a>
-            <a href="#home" className='home__social-link' target='_blank'>
-                <AiOutlineWhatsApp/>
-            </a>
+            <ReactWhatsapp className="home__social-link" number="+8801317752207" message="Hi!"><AiOutlineWhatsApp/></ReactWhatsapp>
         </div>
     );
 };
