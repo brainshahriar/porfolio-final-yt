@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     z-index: 10;
+    transition: .3s;
 }
 .nav__list {
     display: flex;
@@ -32,7 +33,7 @@
     transform: rotate(-180deg);
     writing-mode: vertical-rl;
 }
-.nav__toogle{
+.nav__toggle{
     position: fixed;
     top: 1.25rem;
     left: 1.875rem;
@@ -45,9 +46,19 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
+    transition: .3s;
 }
 @media screen and (max-width: 1024px){
     .aside{
       left: -110px;
+    }
+    .nav__toggle{
+        display: flex;
+    }
+    .nav__toggle-open{
+        left: 140px;
+    }
+    .show-menu{
+        left: 0;
     }
   }
