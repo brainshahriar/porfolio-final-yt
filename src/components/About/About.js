@@ -20,7 +20,7 @@ const About = () => {
             <a
               href={CV}
               className="btn"
-              download="Example-PDF-document"
+              download="Al-Shahriar-CV"
               target="_blank"
               rel="noreferrer"
             >
