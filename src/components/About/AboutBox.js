@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from "react";
 
 const AboutBox = () => {
-  const [coffeeCount, setCoffeeCount] = useState(20);
+  const [coffeeCount, setCoffeeCount] = useState(487);
+
+  //increase coffe count daily
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const currentDate = new Date();
+      const currentHour = currentDate.getHours();
+      const currentMinute = currentDate.getMinutes();
+      const currentSecond = currentDate.getSeconds();
+
+      if (currentHour === 0 && currentMinute === 0 && currentSecond === 0) {
+        setCoffeeCount((prevCount) => prevCount + 1);
+      }
+    }, 1000); // Check every second for the current time
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   //animate coffee count
   useEffect(() => {
     const targetCount = coffeeCount; // Replace with your actual target coffee count
-    const duration = 2000; // Animation duration in milliseconds
+    const duration = 5000; // Animation duration in milliseconds
     const intervalDelay = 20; // Delay between each increment in milliseconds
     const increment = (targetCount / duration) * intervalDelay;
 
@@ -24,20 +42,6 @@ const AboutBox = () => {
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
-
-  //increase coffee count daily
-  useEffect(() => {
-    // Function to update coffeeCount by 1 every day
-    const updateCoffeeCount = () => {
-      setCoffeeCount((prevCount) => prevCount + 1);
-    };
-
-    // Set up interval to update coffeeCount daily
-    const intervalId = setInterval(updateCoffeeCount, 24 * 60 * 60 * 1000);
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(intervalId);
   }, []);
   return (
     <div className="about__boxes grid">
