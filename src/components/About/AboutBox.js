@@ -1,73 +1,83 @@
 import React, { useEffect, useState } from "react";
 
 const AboutBox = () => {
-  const [coffeeCount, setCoffeeCount] = useState(487);
+    const [coffeeCount, setCoffeeCount] = useState(487);
 
-  //increase coffe count daily
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const currentDate = new Date();
-      const currentHour = currentDate.getHours();
-      const currentMinute = currentDate.getMinutes();
-      const currentSecond = currentDate.getSeconds();
+    //increase coffe count daily
+    useEffect(() => {
+        const currentDate = new Date();
+        const targetDate = new Date("2023-12-31"); // December 31, 2023
 
-      if (currentHour === 0 && currentMinute === 0 && currentSecond === 0) {
-        setCoffeeCount((prevCount) => prevCount + 1);
-      }
-    }, 1000); // Check every second for the current time
+        if (currentDate < targetDate) {
+            const timeDifference = targetDate.getTime() - currentDate.getTime();
+            const twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+            // If the time difference is positive, set an initial delay before the first update
+            if (timeDifference > 0) {
+                setTimeout(() => {
+                    setCoffeeCount((prevCount) => prevCount + 1);
+                }, timeDifference);
+            }
 
-  //animate coffee count
-  useEffect(() => {
-    const targetCount = coffeeCount; // Replace with your actual target coffee count
-    const duration = 5000; // Animation duration in milliseconds
-    const intervalDelay = 20; // Delay between each increment in milliseconds
-    const increment = (targetCount / duration) * intervalDelay;
+            const interval = setInterval(() => {
+                setCoffeeCount((prevCount) => prevCount + 1);
+            }, twentyFourHours);
 
-    let currentCount = 0;
-    const intervalId = setInterval(() => {
-      currentCount += increment;
-      setCoffeeCount(Math.floor(currentCount));
+            // Cleanup the interval when the component unmounts or when reaching the target date
+            return () => {
+                clearTimeout(interval);
+                clearInterval(interval);
+            };
+        }
+    }, []);
 
-      if (currentCount >= targetCount) {
-        clearInterval(intervalId);
-        setCoffeeCount(targetCount);
-      }
-    }, intervalDelay);
+    //animate coffee count
+    useEffect(() => {
+        const targetCount = coffeeCount; // Replace with your actual target coffee count
+        const duration = 5000; // Animation duration in milliseconds
+        const intervalDelay = 20; // Delay between each increment in milliseconds
+        const increment = (targetCount / duration) * intervalDelay;
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-  return (
-    <div className="about__boxes grid">
-      <div className="about__box">
-        <i className="about__icon icon-event"></i>
-        <div>
-          <h3 className="about__title">2+ Years</h3>
-          <span className="about__subtitle">Experience</span>
+        let currentCount = 0;
+        const intervalId = setInterval(() => {
+            currentCount += increment;
+            setCoffeeCount(Math.floor(currentCount));
+
+            if (currentCount >= targetCount) {
+                clearInterval(intervalId);
+                setCoffeeCount(targetCount);
+            }
+        }, intervalDelay);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
+    return (
+        <div className="about__boxes grid">
+            <div className="about__box">
+                <i className="about__icon icon-event"></i>
+                <div>
+                    <h3 className="about__title">2+ Years</h3>
+                    <span className="about__subtitle">Experience</span>
+                </div>
+            </div>
+            <div className="about__box">
+                <i className="about__icon icon-fire"></i>
+                <div>
+                    <h3 className="about__title">37</h3>
+                    <span className="about__subtitle">Project Completed</span>
+                </div>
+            </div>
+            <div className="about__box">
+                <i className="about__icon icon-cup"></i>
+                <div>
+                    <h3 className="about__title">{coffeeCount}</h3>
+                    <span className="about__subtitle">Cup of Coffee</span>
+                </div>
+            </div>
         </div>
-      </div>
-      <div className="about__box">
-        <i className="about__icon icon-fire"></i>
-        <div>
-          <h3 className="about__title">37</h3>
-          <span className="about__subtitle">Project Completed</span>
-        </div>
-      </div>
-      <div className="about__box">
-        <i className="about__icon icon-cup"></i>
-        <div>
-          <h3 className="about__title">{coffeeCount}</h3>
-          <span className="about__subtitle">Cup of Coffee</span>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default AboutBox;
