@@ -1,35 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const AboutBox = () => {
-    const [coffeeCount, setCoffeeCount] = useState(487);
-
-    //increase coffe count daily
-    useEffect(() => {
-        const currentDate = new Date();
-        const targetDate = new Date("2023-12-31"); // December 31, 2023
-
-        if (currentDate < targetDate) {
-            const timeDifference = targetDate.getTime() - currentDate.getTime();
-            const twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-
-            // If the time difference is positive, set an initial delay before the first update
-            if (timeDifference > 0) {
-                setTimeout(() => {
-                    setCoffeeCount((prevCount) => prevCount + 1);
-                }, timeDifference);
-            }
-
-            const interval = setInterval(() => {
-                setCoffeeCount((prevCount) => prevCount + 1);
-            }, twentyFourHours);
-
-            // Cleanup the interval when the component unmounts or when reaching the target date
-            return () => {
-                clearTimeout(interval);
-                clearInterval(interval);
-            };
-        }
-    }, []);
+    const [coffeeCount, setCoffeeCount] = useState(1487);
 
     //animate coffee count
     useEffect(() => {
