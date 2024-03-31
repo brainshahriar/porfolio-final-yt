@@ -2,7 +2,7 @@ import React from "react";
 import "./service.scss";
 import Image1 from "../../assets/service-1.svg";
 import Image2 from "../../assets/service-2.svg";
-import Image3 from "../../assets/service-3.svg";
+import Image3 from "../../assets/services-3.svg";
 
 const data = [
   {
@@ -10,21 +10,21 @@ const data = [
     image: Image1,
     title: "UI/UX design",
     description:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit         aenean commodo ligula eget.",
+      "Crafting intuitive user interfaces and delightful user experiences tailored to your target audience, ensuring seamless interaction and engagement.",
   },
   {
     id: 2,
     image: Image2,
     title: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit         aenean commodo ligula eget.",
+      "Building responsive and scalable web applications using modern technologies, optimized for performance, security, and user satisfaction.",
   },
   {
     id: 3,
     image: Image3,
-    title: "Photography",
+    title: "Mobile App Development",
     description:
-      "Lorem ipsum dolor sit amet consectetuer adipiscing elit         aenean commodo ligula eget.",
+      "Creating feature-rich mobile applications for iOS and Android platforms, leveraging the latest technologies and design principles to deliver exceptional user experiences.",
   },
 ];
 
