@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contact.scss";
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const form = useRef();
+
+  const [formData, setFormData] = useState({
+    user_name: '',
+    user_email: '',
+    message: ''
+    });
+
+    function handleChange(e) {
+      const { name, value } = e.target;
+      setFormData({
+       ...formData,
+        [name]: value
+      });
+    }
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -13,6 +27,11 @@ const Contact = () => {
       .then((result) => {
           console.log(result.text);
           alert('Message Sent Successfully');
+          setFormData({
+            user_name: '',
+            user_email: '',
+            message: ''
+          });
       }, (error) => {
           console.log(error.text);
       });
@@ -35,6 +54,8 @@ const Contact = () => {
                 className="contact__form-input"
                 placeholder="Insert your name"
                 name="user_name"
+                value={formData.user_name}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -44,6 +65,8 @@ const Contact = () => {
                 className="contact__form-input"
                 placeholder="Insert your email"
                 name="user_email"
+                value={formData.user_email}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -64,6 +87,8 @@ const Contact = () => {
                 rows="10"
                 placeholder="Write your message"
                 required
+                value={formData.message}
+                onChange={handleChange}
               ></textarea>
             </div>
           <button className="btn">Send Message</button>
