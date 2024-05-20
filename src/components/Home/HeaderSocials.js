@@ -5,7 +5,7 @@ import ReactWhatsapp from 'react-whatsapp';
 const HeaderSocials = () => {
     return (
         <div className="home__socials">
-            <a href="https://www.linkedin.com/in/al-shahriar-mehedi-4094341bb/" className='home__social-link' target='_blank' rel="noreferrer">
+            <a href="https://www.linkedin.com/in/sh4hriar/" className='home__social-link' target='_blank' rel="noreferrer">
                 <AiFillLinkedin/>
             </a>
             <a href="https://www.facebook.com/al.shahariar" className='home__social-link' target='_blank' rel="noreferrer">
