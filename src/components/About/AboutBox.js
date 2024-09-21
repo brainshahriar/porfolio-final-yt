@@ -30,7 +30,7 @@ const AboutBox = () => {
             <div className="about__box">
                 <i className="about__icon icon-event"></i>
                 <div>
-                    <h3 className="about__title">2+ Years</h3>
+                    <h3 className="about__title">3+ Years</h3>
                     <span className="about__subtitle">Experience</span>
                 </div>
             </div>
